@@ -10,7 +10,7 @@ process.on('uncaughtException', (err) => {
 });
 //
 
-dotenv.config({ path: './config.env' }); //this command reads the contents from config.env and  makes it available when we run npm start alias of nodemon server.js
+dotenv.config({ path: './.env' }); //this command reads the contents from config.env and  makes it available when we run npm start alias of nodemon server.js
 
 //this line must be after the previous line because only then we can get access to env variables in app
 const app = require('./app');
