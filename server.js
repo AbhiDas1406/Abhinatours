@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 //availabe in process.env what we save in config.env
 
 process.on('uncaughtException', (err) => {
@@ -15,6 +16,14 @@ dotenv.config({ path: './config.env' }); //this command reads the contents from 
 const app = require('./app');
 //console.log(process.env); //uncomment to see the process enviromment variables
 
+//cors adding
+const corsOptions = {
+  origin: ['https://abhinatours.vercel.app'],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
 //Connect to DB
 
 const DB = process.env.DATABASE.replace(
