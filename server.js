@@ -31,11 +31,19 @@ const DB = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD,
 );
 
+// this is depreceted the the other two fields
+// mongoose
+//   .connect(DB, {
+//     useNewUrlParser: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => console.log('DB connection successful!'));
+
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
     useUnifiedTopology: true,
   })
   .then(() => console.log('DB connection successful!'));
